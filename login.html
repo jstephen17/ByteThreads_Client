@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ByteThreads</title>
+        <link rel="stylesheet" href="login-style.css">
+        
+        <script src="login_script.js" defer></script>
+    </head>
+
+    <body>
+        <div id="container">
+            <main>
+                <section id="login-section">
+                    <div class="login-container">
+                        <img class="logo" src="res/download_icon.png">
+                        <form id="logIn_Form">
+                            <input id="user_login" type="text" placeholder="Username or email"/><br>
+                            <input class="password_field" id="password_login" type="text" placeholder="Password"/><br>
+                            <button type="submit">Log in</button>
+                        </form>
+                        <a href="password_reset.html">Forgot Password?</a>
+                    </div>
+                    <div class="login-container">
+                        <p>Don't Have an Account?  <a href="#" onclick="toggle(this)">SIGN UP</a></p>
+                    </div>
+                </section>
+                <section id="signup-section">
+                    <div class="login-container">
+                        <img class="logo" src="res/download_icon.png">
+                        <form id="signUp_Form">
+                            <input id="email_signUp" type="email" placeholder="Email"/><br>
+                            <input class="username_field" id="username_signUp" type="text" placeholder="Username"/><br>
+                            <input class="password_field" id="password_signUp" type="text" placeholder="Password"/><br>
+                            <input class="password_field" id="repeatpassword_signUp" type="text" placeholder="Repeat Password"/><br>
+                            <button type="submit">Sign up</button>
+                        </form>
+                    </div>
+                    <div class="login-container">
+                        <p>Already Have an Account?  <a href="#" onclick="toggle(this)">LOG IN</a></p>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <h1>Hello</h1>
+            </footer>
+        </div>
+    </body>
+
+</html>

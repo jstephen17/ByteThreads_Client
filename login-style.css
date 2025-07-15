@@ -1,0 +1,108 @@
+html, body {
+    height: 100%;
+    font-size: medium;
+    margin: 0;
+    background-color: rgb(18, 18, 32);
+    color: white;
+}
+
+button{
+    cursor: pointer;
+    border-radius: 1vh;
+    width: 15vw;
+    padding: 0.5vh;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    font-size: large;
+    background-color: rgb(19, 54, 248);
+    border-color: rgb(69, 104, 248, 0.5);
+    color: white;
+    font-weight: bold;
+}
+
+button:hover{
+    opacity: 75%;
+}
+
+/* Flex container to arrange sidebar and main content horizontally */
+#container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Main content fills the rest */
+main {
+    flex: 1;
+    height: 100%;
+    padding: 0;
+}
+
+section{
+    width: 80%;
+    height: 100%;
+    margin: auto;  
+    text-align: center;
+
+    justify-content: center;     
+    align-items: center;     
+    padding: 0;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#signup-section{
+    
+    display: none;
+}
+
+#login-section{
+    display: flex;
+}
+
+.login-container{
+    border:  rgba(255, 255, 255, 0.1) solid;
+    padding: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2vh;
+    width: 20vw;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.login-container p a{
+    color: rgb(0, 81, 255);
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgba(255, 255, 255, 0.747);
+    text-decoration: none;
+}
+
+form input{
+    width: 14vw;
+    padding: 0.5vh;
+    margin-bottom: 1vh;
+    border-radius: 0.6vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border:  rgba(255, 255, 255, 0.1) solid;
+}
+
+.logo{
+    width: 6vh;
+    width: 6vh;
+    margin-bottom: 2vh;
+}
+
+footer{
+    height: 15vh;
+    background-color: black;
+    text-align: center;
+}
