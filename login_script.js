@@ -19,7 +19,6 @@ document.querySelectorAll('.password_field').forEach(
         });
 });
 
-
 form_signUp.addEventListener('submit', async function(event){
     event.preventDefault();
 
@@ -61,25 +60,37 @@ form_signUp.addEventListener('submit', async function(event){
 
 });
 
-form_logIn.addEventListener('submit', function(event){
+form_logIn.addEventListener('submit', async function(event){
     event.preventDefault();
 
     const user = document.getElementById("user_login").value;
     const password = document.getElementById("password_login").value;
 
+    let res;
+
     if(email_regex.test(user)){ 
         
+        res = await fetch(`http://localhost:5000/api/users?email=${user}`,{
+        method: 'GET'});
+
         if(password === password){
             console.log("Email");
         }
 
     }else{
 
+        res = await fetch(`http://localhost:5000/api/users?name=${user}`,{
+        method: 'GET'});
+
         if(password === password){
             console.log("Username");
         }
 
     }
+
+    const result = await res.json();
+    console.log(result);
+
 });
 
 
