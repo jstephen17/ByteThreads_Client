@@ -73,6 +73,10 @@ section{
     width: 20vw;
 }
 
+.login-container p{
+    color: rgb(220, 220, 220);
+}
+
 a{
     color: white;
     text-decoration: none;
