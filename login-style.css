@@ -52,11 +52,14 @@ section{
 }
 
 #signup-section{
-    
-    display: none;
+    display: flex;
 }
 
 #login-section{
+    display: none;
+}
+
+#enter-email-section{
     display: flex;
 }
 

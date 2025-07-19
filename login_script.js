@@ -42,10 +42,6 @@ form_signUp.addEventListener('submit', async function(event){
 
     if(user_password !== repeatpassword){ alert("Passwords do not match."); return; }
 
-    console.log("Email: " + user_email);
-    console.log("Username: " + user_name);
-    console.log("Password: " + user_password);
-
     const res = await fetch("http://localhost:5000/api/users",{
     method: 'POST',
     headers: {
@@ -71,7 +67,7 @@ form_logIn.addEventListener('submit', async function(event){
     if(email_regex.test(user)){ 
         
         res = await fetch(`http://localhost:5000/api/users?email=${user}`,{
-        method: 'GET'});
+        method: ''});
 
         if(password === password){
             console.log("Email");
@@ -79,8 +75,8 @@ form_logIn.addEventListener('submit', async function(event){
 
     }else{
 
-        res = await fetch(`http://localhost:5000/api/users?name=${user}`,{
-        method: 'GET'});
+        res = await fetch(`http://localhost:5000/api/users?username=${user}`,{
+        method: ''});
 
         if(password === password){
             console.log("Username");
