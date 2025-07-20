@@ -89,7 +89,10 @@ form_logIn.addEventListener('submit', async function(event){
     }
 
     const result = await res.json();
-    console.log(result);
+    if(result.success){
+        console.log(result.message);
+        sessionStorage.setItem('authToken', result.token);
+    }
 
 });
 
