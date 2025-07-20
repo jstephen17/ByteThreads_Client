@@ -42,7 +42,7 @@ form_signUp.addEventListener('submit', async function(event){
 
     if(user_password !== repeatpassword){ alert("Passwords do not match."); return; }
 
-    const res = await fetch("http://localhost:5000/api/users",{
+    const res = await fetch("http://localhost:5000/api/users/register",{
     method: 'POST',
     headers: {
         'Content-Type': 'application/json' 
@@ -64,23 +64,27 @@ form_logIn.addEventListener('submit', async function(event){
 
     let res;
 
+    if(!password){alert("Please enter your password.");}
+
     if(email_regex.test(user)){ 
         
-        res = await fetch(`http://localhost:5000/api/users?email=${user}`,{
-        method: ''});
-
-        if(password === password){
-            console.log("Email");
-        }
+        res = await fetch(`http://localhost:5000/api/users/login`,{
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({email: user, password: password})
+    });
 
     }else{
 
-        res = await fetch(`http://localhost:5000/api/users?username=${user}`,{
-        method: ''});
-
-        if(password === password){
-            console.log("Username");
-        }
+        res = await fetch(`http://localhost:5000/api/users/login`,{
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({username: user, password: password})
+    });
 
     }
 
