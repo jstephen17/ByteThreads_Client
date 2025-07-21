@@ -96,6 +96,22 @@ form_logIn.addEventListener('submit', async function(event){
 
 });
 
+function setupPasswordToggle(toggleBtnId, inputId, imgId) {
+    const input = document.getElementById(inputId);
+    const toggleBtn = document.getElementById(toggleBtnId);
+    const img = document.getElementById(imgId);
+
+    toggleBtn.addEventListener('click', () => {
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        img.src = isPassword ? 'res/eye_icon.png' : 'res/blind_icon.png';
+    });
+}
+
+// Set up toggles for both password fields
+setupPasswordToggle("signup-pwtoggle", "password_signUp", "showPW-signup");
+setupPasswordToggle("repeatpw-toggle", "repeatpassword_signUp", "showPW-repeat");
+setupPasswordToggle("login-pwtoggle", "password_login", "showPW-login");
 
 
 function toggle(button) {

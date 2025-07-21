@@ -12,11 +12,19 @@
             <main>
                 <section id="login-section">
                     <div class="login-container">
-                        <img class="logo" src="res/download_icon.png">
+                        <br>
+                        <img class="logo" src="res/icon.png">
                         <h3>Log in to your Account</h3>
                         <form id="logIn_Form">
-                            <input id="user_login" type="text" placeholder="Username or email"/><br>
-                            <input class="password_field" id="password_login" type="text" placeholder="Password"/><br>
+                            <div class="inputbox-wrapper">
+                                <input id="user_login" type="text" placeholder="Username or email"/>
+                            </div>
+                            <div class="inputbox-wrapper">
+                                <input class="password_field" id="password_login" type="password" placeholder="Password"/>
+                                <button id="login-pwtoggle" class="visibility-toggle" type="button">
+                                    <img id="showPW-login" class="showPW-icon" src="res/blind_icon.png">
+                                </button>
+                            </div>
                             <button type="submit">Log in</button>
                         </form>
                         <a href="password_reset.html">Forgot Password?</a>
@@ -27,13 +35,28 @@
                 </section>
                 <section id="signup-section">
                     <div class="login-container">
-                        <img class="logo" src="res/download_icon.png">
+                        <br>
+                        <img class="logo" src="res/icon.png">
                         <h3>Create a new fresh Account</h3>
                         <form id="signUp_Form">
-                            <input id="email_signUp" type="email" placeholder="Email"/><br>
-                            <input class="username_field" id="username_signUp" type="text" placeholder="Username"/><br>
-                            <input class="password_field" id="password_signUp" type="text" placeholder="Password"/><br>
-                            <input class="password_field" id="repeatpassword_signUp" type="text" placeholder="Repeat Password"/><br>
+                            <div class="inputbox-wrapper">
+                                <input id="email_signUp" type="email" placeholder="Email"/>
+                            </div>
+                            <div class="inputbox-wrapper">
+                                <input class="username_field" id="username_signUp" type="text" placeholder="Username"/><br>
+                            </div>
+                            <div class="inputbox-wrapper">
+                                <input class="password_field" id="password_signUp" type="password" placeholder="Password"/>
+                                <button id="signup-pwtoggle" class="visibility-toggle" type="button">
+                                    <img id="showPW-signup" class="showPW-icon" src="res/blind_icon.png">
+                                </button>
+                            </div>
+                            <div class="inputbox-wrapper">
+                                <input class="password_field" id="repeatpassword_signUp" type="password" placeholder="Repeat Password"/>
+                                <button id="repeatpw-toggle" class="visibility-toggle" type="button">
+                                    <img id="showPW-repeat" class="showPW-icon" src="res/blind_icon.png">
+                                </button>
+                            </div>
                             <button type="submit">Sign up</button>
                         </form>
                     </div>
