@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>ByteThreads - Log In</title>
-        <link rel="stylesheet" href="login-style.css">
+        <link rel="stylesheet" href="/client/views/login-style.css">
         
-        <script src="login_script.js" defer></script>
+        <script src="/client/views/login_script.js" defer></script>
     </head>
 
     <body>
@@ -13,7 +13,7 @@
                 <section id="login-section">
                     <div class="login-container">
                         <br>
-                        <img class="logo" src="res/icon.png">
+                        <img class="logo" src="/client/res/icon.png">
                         <h3>Log in to your Account</h3>
                         <form id="logIn_Form">
                             <div class="inputbox-wrapper">
@@ -22,12 +22,12 @@
                             <div class="inputbox-wrapper">
                                 <input class="password_field" id="password_login" type="password" placeholder="Password"/>
                                 <button id="login-pwtoggle" class="visibility-toggle" type="button">
-                                    <img id="showPW-login" class="showPW-icon" src="res/blind_icon.png">
+                                    <img id="showPW-login" class="showPW-icon" src="/client/res/blind_icon.png">
                                 </button>
                             </div>
                             <button type="submit">Log in</button>
                         </form>
-                        <a href="password_reset.html">Forgot Password?</a>
+                        <a href="/client/views/password_reset.html" onclick="routehref()">Forgot Password?</a>
                     </div>
                     <div class="login-container">
                         <p>Don't Have an Account?</p> <p><a href="#" onclick="toggle(this)">SIGN UP</a></p>
@@ -36,7 +36,7 @@
                 <section id="signup-section">
                     <div class="login-container">
                         <br>
-                        <img class="logo" src="res/icon.png">
+                        <img class="logo" src="/client/res/icon.png">
                         <h3>Create a new fresh Account</h3>
                         <form id="signUp_Form">
                             <div class="inputbox-wrapper">
@@ -48,13 +48,13 @@
                             <div class="inputbox-wrapper">
                                 <input class="password_field" id="password_signUp" type="password" placeholder="Password"/>
                                 <button id="signup-pwtoggle" class="visibility-toggle" type="button">
-                                    <img id="showPW-signup" class="showPW-icon" src="res/blind_icon.png">
+                                    <img id="showPW-signup" class="showPW-icon" src="/client/res/blind_icon.png">
                                 </button>
                             </div>
                             <div class="inputbox-wrapper">
                                 <input class="password_field" id="repeatpassword_signUp" type="password" placeholder="Repeat Password"/>
                                 <button id="repeatpw-toggle" class="visibility-toggle" type="button">
-                                    <img id="showPW-repeat" class="showPW-icon" src="res/blind_icon.png">
+                                    <img id="showPW-repeat" class="showPW-icon" src="/client/res/blind_icon.png">
                                 </button>
                             </div>
                             <button type="submit">Sign up</button>
@@ -69,6 +69,9 @@
                 <h1>Hello</h1>
             </footer>
         </div>
+        <script>
+
+        </script>
     </body>
 
 </html>

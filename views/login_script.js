@@ -92,6 +92,7 @@ form_logIn.addEventListener('submit', async function(event){
     if(result.success){
         console.log(result.message);
         sessionStorage.setItem('authToken', result.token);
+        window.location.href = "/client/index.html"
     }
 
 });
@@ -104,7 +105,7 @@ function setupPasswordToggle(toggleBtnId, inputId, imgId) {
     toggleBtn.addEventListener('click', () => {
         const isPassword = input.type === 'password';
         input.type = isPassword ? 'text' : 'password';
-        img.src = isPassword ? 'res/eye_icon.png' : 'res/blind_icon.png';
+        img.src = isPassword ? '/client/res/eye_icon.png' : '/client/res/blind_icon.png';
     });
 }
 
@@ -130,3 +131,5 @@ function toggle(button) {
         break;
     }
 }
+
+window.history.pushState({}, "", "/login");

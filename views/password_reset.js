@@ -13,3 +13,5 @@ email_form.addEventListener('submit', async function(event) {
     const res = await fetch(`http://localhost:5000/api/users?email=${user_email}`,{
     method: 'GET'});
 });
+
+window.history.pushState({}, "", "/resetpassword");
