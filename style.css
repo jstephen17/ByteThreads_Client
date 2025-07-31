@@ -19,10 +19,9 @@ button{
 
 /* Sidebar */
 #side-container {
-    width: 25%;
+    width: 30vw;
     min-height: 100%;
-    text-align: right;
-    border-right: rgba(255, 255, 255, 0.2) solid;
+
 }
 
 /* Remove list bullets and padding */
@@ -30,11 +29,12 @@ button{
     list-style-type: none;
     padding: 0;
     margin: 0;
+    
 }
 
 #side-bar li {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 10px;
 }
 
@@ -62,26 +62,97 @@ button{
 
 /* Main content fills the rest */
 main {
-    
+    display: flex;             /* enables horizontal layout */
     flex: 1;
-    padding: 2vh;
-    overflow-y: auto; /* Only main scrolls */
-    padding: 0;
+    height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
-#main-container{
-    width: 67%;
+#main-container {
+    width: 40vw;
     text-align: center;
     height: 100%;
+    overflow-y: auto;
 }
 
-.main-content{
+#last-container {
+    flex: 1; /* take up remaining space */
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+.post-container{
     border-bottom:  rgba(255, 255, 255, 0.2) solid;
     margin: 0;
-    padding: 1vh 0;
+    padding: 2vh;
+    text-align: left;
 }
 
-.main-content:hover{
+.post-container:hover{
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.post-info{
+    display: flex;
+    height: 4vh;
+    align-items: center;
+}
+
+
+.userpic{
+    height: 100%;
+    border-radius: 50%;
+}
+
+.post-content{
+    width: 90%;
+    margin-left: 1%;
+}
+
+.username{
+    margin-left: 0.5rem;
+}
+
+.caption{
+    margin: 0;
+    padding: 1% 0% 1% 0%;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.post-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Modal Overlay */
+#modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Box */
+#modal-box {
+    background-color: white;
+    color: black;
+    padding: 2vw;
+    border-radius: 15%;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+}
+
+/* Hide class */
+.hidden {
+    display: none;
 }

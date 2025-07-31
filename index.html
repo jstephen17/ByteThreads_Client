@@ -3,6 +3,7 @@
     <head>
         <title>ByteThreads</title>
         <link rel="stylesheet" href="style.css">
+        <script type="module" src="/client/app.js"></script>
     </head>
 
     <body>
@@ -11,18 +12,32 @@
                 <nav id="side-bar">
                     <ul style="list-style-type: none;">
                         <li style="position: relative; right: 2vw;">ByteThreads</li>
-                        <li><button onclick="route('/')"><img src="res/home_icon.png">Home</button></li>
-                        <li><button onclick="route('/login')"><img src="res/acct2_icon.png">Account</button></li>
-                        <li><button><img src="res/write_icon.png">Post</button></li>
+                        <li><button class="nav_button" data-dest="/"><img src="res/home_icon.png">Home</button></li>
+                        <li><button class="nav_button" data-dest="/login"><img src="res/acct2_icon.png">Account</button></li>
+                        <li><button class="nav_button"><img src="res/write_icon.png">Post</button></li>
                     </ul>
                 </nav>
             </section>
             <main id="main-section">
+                <section id="main-container">
+                    <div class="post-container">
+                        
+                    </div>
                 
+                </section>
+                <section id="last-container">
+                
+                </section>
             </main>
         </div>
+                <!-- Modal -->
+        <div id="modal-overlay" class="hidden">
+        <div id="modal-box">
+            <p id="modal-message">This is a modal.</p>
+            <button id="modal-close">Close</button>
+        </div>
+        </div>
 
-        <script src="/client/router.js"></script>
     </body>
 
 </html>
