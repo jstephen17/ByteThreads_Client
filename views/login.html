@@ -3,8 +3,7 @@
     <head>
         <title>ByteThreads - Log In</title>
         <link rel="stylesheet" href="/client/views/login-style.css">
-        
-        <script src="/client/views/login_script.js" defer></script>
+
     </head>
 
     <body>
@@ -30,7 +29,7 @@
                         <a href="/client/views/password_reset.html" onclick="routehref()">Forgot Password?</a>
                     </div>
                     <div class="login-container">
-                        <p>Don't Have an Account?</p> <p><a href="#" onclick="toggle(this)">SIGN UP</a></p>
+                        <p>Don't Have an Account?</p> <p><a href="#" class="toggle-link">SIGN UP</a></p>
                     </div>
                 </section>
                 <section id="signup-section">
@@ -61,7 +60,7 @@
                         </form>
                     </div>
                     <div class="login-container">
-                        <p>Already Have an Account? </p><p><a href="#" onclick="toggle(this)">LOG IN</a></p>
+                        <p>Already Have an Account? </p><p><a href="#" class="toggle-link">LOG IN</a></p>
                     </div>
                 </section>
             </main>
@@ -69,9 +68,129 @@
                 <h1>Hello</h1>
             </footer>
         </div>
-        <script>
 
+        <script type="module" defer>
+            import { Api } from "../handlers/api.js";
+
+            const form_signUp = document.getElementById("signUp_Form");
+            const form_logIn = document.getElementById("logIn_Form");
+
+            const name_regex = /^[a-zA-Z0-9_-]{3,16}$/;
+            const password_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&._-])[A-Za-z\d@$!%*#?&._-]{8,32}$/;
+            const email_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            document.querySelectorAll('.username_field').forEach(
+                input => {
+                    input.addEventListener('input', () =>{
+                        input.value = input.value.replace(/[^a-zA-Z0-9_-]/g, '');
+                });
+            });
+
+            document.querySelectorAll('.password_field').forEach(
+                input => {
+                    input.addEventListener('input', ()=>{
+                        input.value =  input.value.replace(/[^A-Za-z0-9@$!%*#?&._-]/g, '');
+                    });
+            });
+
+            form_signUp.addEventListener('submit', async function(event){
+                event.preventDefault();
+
+                const user_email = document.getElementById("email_signUp").value;
+                const user_name = document.getElementById("username_signUp").value;
+                const user_password = document.getElementById("password_signUp").value;
+                const repeatpassword = document.getElementById("repeatpassword_signUp").value;
+                
+
+                if(user_email.length === 0 || user_name.length === 0 || user_password.length === 0 || repeatpassword.length === 0){alert("Please fill out all the fields."); return;}
+
+                if(!email_regex.test(user_email)){ 
+                    alert("Please enter a valid email."); 
+                    return;
+                }
+
+                if(!password_regex.test(user_password)){ 
+                    alert("Password must be 8-32 characters, with at least one uppercase letter, one lowercase letter, one number, and one special character."); 
+                    return;
+                }
+
+                if(user_password !== repeatpassword){ alert("Passwords do not match."); return; }
+
+                const result = await Api.register({name: user_name, email: user_email, password: user_password});
+
+                if(result.success){
+                    const login = await Api.login({email: user_email, password: user_password});
+
+                    if(login.success) window.location.href = "/client/index.html";
+                }
+
+            });
+
+            form_logIn.addEventListener('submit', async function(event){
+                event.preventDefault();
+
+                const user = document.getElementById("user_login").value;
+                const password = document.getElementById("password_login").value;
+
+                let result;
+
+                if(!password){alert("Please enter your password.");}
+
+                if(email_regex.test(user)){ 
+                    result = await Api.login({email: user, password: password});
+                }else{
+                    result = await Api.login({username: user, password: password});
+                }
+
+                if(result.success) window.location.href = "/client/index.html";
+            });
+
+            function setupPasswordToggle(toggleBtnId, inputId, imgId) {
+                const input = document.getElementById(inputId);
+                const toggleBtn = document.getElementById(toggleBtnId);
+                const img = document.getElementById(imgId);
+
+                toggleBtn.addEventListener('click', () => {
+                    const isPassword = input.type === 'password';
+                    input.type = isPassword ? 'text' : 'password';
+                    img.src = isPassword ? '/client/res/eye_icon.png' : '/client/res/blind_icon.png';
+                });
+            }
+
+            // Set up toggles for both password fields
+            setupPasswordToggle("signup-pwtoggle", "password_signUp", "showPW-signup");
+            setupPasswordToggle("repeatpw-toggle", "repeatpassword_signUp", "showPW-repeat");
+            setupPasswordToggle("login-pwtoggle", "password_login", "showPW-login");
+
+
+            function toggle(button) {
+                console.log("Button clicked:", button);
+                var label = button.textContent;
+                const login = document.getElementById("login-section");
+                const signup = document.getElementById("signup-section");
+                switch(label){
+                    case "LOG IN":
+                        login.style.display ="flex";
+                        signup.style.display ="none";
+                    break;
+                    case "SIGN UP":
+                        signup.style.display ="flex";
+                        login.style.display ="none";
+                    break;
+                }
+            }
+
+            document.querySelectorAll('.toggle-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                e.preventDefault(); // prevent page jump
+
+                toggle(link); // call your toggle function with the clicked link
+                });
+            });
+
+
+            window.history.pushState({}, "", "/login");
         </script>
-    </body>
 
+    </body>
 </html>
